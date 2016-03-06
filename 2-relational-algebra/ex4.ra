@@ -1,0 +1,12 @@
+/*
+ * Exercise 4:
+ * Find all pizzerias that serve at least one pizza for less than $10 that both Amy and Fay eat.
+ */
+
+/* Pizzerias that serve a $10 pizza that Amy eats  */
+\project_{pizzeria} \select_{name = "Amy" and price < 10} (Serves \join Eats)
+
+    \intersect
+
+/* Pizzerias that serve a $10 pizza that Fay eats */
+\project_{pizzeria} \select_{name = "Fay" and price < 10} (Serves \join Eats)

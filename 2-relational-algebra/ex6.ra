@@ -1,0 +1,16 @@
+/*
+ * Exercise 6:
+ * Find all pizzas that are eaten only by people younger than 24, or that cost less than $10 everywhere they're served.
+ */
+
+/* Pizzas that are less than $10 everywhere */
+((\project_{pizza} \select_{price < 10} Serves)
+    \diff
+(\project_{pizza} \select_{price >= 10} Serves))
+
+    \union
+
+/* Pizzas that are eaten only by people younger than 24 */
+((\project_{pizza} (\select_{age < 24} Person \join Eats))
+    \diff
+(\project_{pizza} (\select_{age >= 24} Person \join Eats)))

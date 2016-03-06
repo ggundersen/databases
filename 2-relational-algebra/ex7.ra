@@ -1,0 +1,20 @@
+/*
+ * Exercise 7:
+ * Find the age of the oldest person (or people) who eat mushroom pizza.
+ */
+
+/* Ages of people who eat mushroom pizza */
+\project_{age} \select_{pizza = "mushroom"} (Person \join Eats)
+
+    \diff
+
+/* Ages of people who eat mushroom pizza except the max age */
+\project_{age1} (
+
+    /* By filtering in this way, we guarantee the max age is excluded */
+    \select_{age1 < age2} (
+        \rename_{age1} (\project_{age} \select_{pizza = "mushroom"} (Person \join Eats))
+            \join
+        \rename_{age2} (\project_{age} \select_{pizza = "mushroom"} (Person \join Eats))
+    )
+)

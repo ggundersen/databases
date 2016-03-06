@@ -1,0 +1,23 @@
+/* 
+ * Exericse 8:
+ * Find all pizzerias that serve only pizzas eaten by people over 30.
+ */
+
+/* Pizzerias that serve pizzas that 30-year-olds eat */
+\project_{pizzeria} (\select_{age > 30} Person \join Eats \join Serves)
+
+    \diff
+
+/* Pizzerias that serve pizzas that 30-year-olds do not eat */
+\project_{pizzeria} (
+    (
+        /* All pizzas */
+        \project_{pizza} Serves
+
+            \diff
+
+        /* Pizzas that 30-year-olds eat */
+        \project_{pizza} (\select_{age > 30} Person \join Eats)
+    
+    ) \join Serves
+)

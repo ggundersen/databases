@@ -1,5 +1,0 @@
-"Find the names of all people who eat at least one pizza served by Dominos but who do not frequent Dominos."
-
-(\project_{name} \select_{pizzeria="Dominos"} (Serves \join Eats))
-    \diff
-(\project_{name} \select_{pizzeria="Dominos"} Frequents)
