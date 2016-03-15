@@ -4,5 +4,5 @@
  */
 
 SELECT DISTINCT year FROM Movie
-NATURAL JOIN Rating
+  NATURAL JOIN Rating
 WHERE stars = 4 OR stars = 5;
