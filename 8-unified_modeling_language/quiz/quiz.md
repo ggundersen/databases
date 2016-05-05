@@ -10,7 +10,7 @@ Question 1
 Could have this. Third translation: mega-relation.
 
 **Book(edition):**
-Not a possible translation of a subclass. Need a foreign key, to have all the attributes of subclass, or megaclass.
+Not a possible translation of a subclass. Need (1) a foreign key, (2) to have all the attributes of subclass, or (3) megaclass.
 
 **Book(ISBN, edition):**
 Could have this. This is the first translation, keeping the attributes for the subclass and the foreign key for the superclass.
@@ -49,10 +49,10 @@ This is probably the best. Every collection must has an ISBN and volume, but the
 This would work, but since multiple articles can be associated with the same collection, we would repeat the ISBN and volume attributes over and over. Just need the ISBN.
 
 **Article(title, pages, keywords, volume, ISBN, pub-title, year):**
-This would work if the `Collection` subclass has all the attributes of its superclass, a valid translation. But we'd end up repeating the `Publication` information for all the articles in the publication.
+This would work if the Collection subclass has all the attributes of its superclass, a valid translation. But we'd end up repeating the publication information for all the articles in the publication.
 
 **Article(title, pages, keywords, volume):**
-Don't think this would work. `volume` is just an attribute of a subclass. `volume` could be "4" for all we know. That's not a unique identifier.
+Don't think this would work. volume is just an attribute of a subclass. volume could be "4" for all we know. That's not a unique identifier.
 
 
 Question 4
@@ -61,25 +61,25 @@ Question 4
 > Consider translating this UML diagram to relations. In the relation Edits generated from the Edits association, which of the following set of underlined attributes is a minimal key?
 
 **Edits(*name*, *ISBN*, *start-date*, *end-date*)**
-`start-date` and `end-date` do not matter since a `Publication` can have at most one `Editor`.
+start-date and end-date do not matter since a publication can have at most one Editor.
 
 **Edits(name, *ISBN*, start-date, end-date)**
-This works. Since a `Publication` can have at most one `Editor`, we only need the `Publication` key, which is `ISBN`. Adding `Name` would give no more information, since again, there can only be one editor. Imagine the reverse. `name` cannot be the key, because the same editor can edit two books. Now we could have an editor listed without a publication, but we can have null primary keys.
+This works. Since a publication can have at most one Editor, we only need the publication key, which is ISBN. Adding Name would give no more information, since again, there can only be one editor. Imagine the reverse. name cannot be the key, because the same editor can edit two books. Now we could have an editor listed without a publication, but we can have null primary keys.
 
 **Edits(name, *ISBN*, *start-date*, *end-date*)**
-`start-date` and `end-date` do not matter since a `Publication` can have at most one `Editor`.
+start-date and end-date do not matter since a publication can have at most one Editor.
 
 **Edits(*name*, ISBN, *start-date*, *end-date*)**
-`start-date` and `end-date` do not matter since a `Publication` can have at most one `Editor`.
+start-date and end-date do not matter since a publication can have at most one Editor.
 
 
 Question 5
 -
 
-> Based on this UML diagram, which of the following statements about the City and State classes is correct?
+> Based on this UML diagram, which of the following statements about the city and state classes is correct?
 
 **No two cities can have the same mayor.**
-No guarantee of this. `mayor` is not even a primary key.
+No guarantee of this. mayor is not even a primary key.
 
 **Each state has at least one city.**
 No, a state can have 0-to-many cities.
@@ -88,7 +88,7 @@ No, a state can have 0-to-many cities.
 Again, we don't know anything about the mayor. There could be the same mayor for every city in every state.
 
 **Each city has at most one mayor.**
-Yes. There is only one mayor attribute. If we wanted more than one mayor, we would need a `Mayor` class with an association between `Mayor` and `City`.
+Yes. There is only one mayor attribute. If we wanted more than one mayor, we would need a mayor class with an association between mayor and city.
 
 
 Question 6
