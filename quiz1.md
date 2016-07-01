@@ -1,20 +1,18 @@
 Q1
 =
 
-> ```sql
+> ```
 > CREATE TABLE R (a INT, b INT, c INT, CHECK( [fill-in] ));
 > ```
 > Currently R contains the tuples (1,4,14), (2,3,15), and (3,3,16). Which of the following tuple-based CHECK constraints will cause the following insertion to be rejected? 
 > INSERT INTO R VALUES (4,4,9);
 
-Answer choices and analysis
--
-
-##### a < (SELECT COUNT(c) FROM R)
+> a < (SELECT COUNT(c) FROM R)
 
 _False. After the insert, COUNT(c) will return 4. The new value a=4 is not less than 4._
 
-##### c > ALL (SELECT a + b FROM R)
+
+> c > ALL (SELECT a + b FROM R)
 
 True. If we select a+b for every tuple, we get:
 ```
@@ -25,7 +23,8 @@ True. If we select a+b for every tuple, we get:
 ```
 In this case, the new value c=9 is true for every row.
 
-##### c <= ALL (SELECT b + c FROM R)
+
+> c <= ALL (SELECT b + c FROM R)
 
 True. If we select b+c for every tuple, we get:
 ```
@@ -36,6 +35,6 @@ True. If we select b+c for every tuple, we get:
 ```
 In this case, the new value c=9 is true for every row.
 
-##### b < (SELECT MIN(c) FROM R) 
+> b < (SELECT MIN(c) FROM R) 
 
 True. min(c) is 9, and the new value b=4 is less than 9.

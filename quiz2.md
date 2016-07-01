@@ -1,7 +1,7 @@
 Q2
 =
 
-> ```sql
+> ```
 > CREATE TRIGGER Rins
 > AFTER INSERT ON R
 > REFERENCING NEW ROW AS new
@@ -13,6 +13,7 @@ Q2
 >     EXCEPT
 >     (SELECT DISTINCT a,b FROM R)
 > ```
+
 > Suppose table R is empty initially. We issue three commands to insert tuples into R: first we insert (1,2), then we insert (2,3), then we insert (3,4). After some of these inserts, trigger Rins may insert further tuples into R, which may activate the trigger recursively. After all the inserts are done, which of these tuples is NOT in table R?
 
 Analysis
@@ -33,9 +34,7 @@ Answer choices
 -
 
 - (2,4)
-- **(3,2)** - Not in final table
+- **(3,2)** (Not in final table)
 - (1,3)
 - (1,4)
-
-
 
