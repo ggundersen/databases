@@ -26,3 +26,4 @@ BEGIN
         SELECT ID2 FROM Friend WHERE ID1 = Old.ID
     );
 END;
+

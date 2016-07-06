@@ -11,3 +11,4 @@ BEGIN
     DELETE FROM Highschooler
     WHERE ID = New.ID;
 END;
+

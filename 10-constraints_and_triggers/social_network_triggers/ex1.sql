@@ -14,3 +14,4 @@ BEGIN
   SELECT New.ID, h.ID FROM Highschooler h
   WHERE h.grade = New.grade AND h.ID != New.ID;
 END;
+
