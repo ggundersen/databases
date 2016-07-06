@@ -5,7 +5,7 @@
  * Don't worry about updates to the Friend table.
  */
 
-CREATE TRIGGER parity1
+CREATE TRIGGER revenge
 AFTER DELETE ON Friend
 FOR EACH ROW
 BEGIN
@@ -15,7 +15,7 @@ END;
 
 | -- This pipe is required by the Lagunitas grading system.
 
-CREATE TRIGGER parity2
+CREATE TRIGGER befriend
 AFTER INSERT ON Friend
 FOR EACH ROW
 BEGIN
